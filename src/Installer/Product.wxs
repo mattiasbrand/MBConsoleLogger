@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:fire="http://schemas.microsoft.com/wix/FirewallExtension">
+	<Product Id="*" Name="MBConsoleLogger" Language="1033" Version="1.0.0.0" Manufacturer="Mattias Brand" UpgradeCode="FD50CB63-A225-467C-9BBE-F0D374C0B9D6">
+		<Package InstallerVersion="301" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of MBConsoleLogger is already installed." AllowSameVersionUpgrades="yes" />
+		<MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="MBConsoleLogger" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="MBConsoleLogger" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Id="MBConsoleLogger.exe" Guid="E7E0472D-3C56-49C7-B11A-730431C536A6">
+        <File Id="MBConsoleLogger.exe" Source="$(var.MBConsoleLogger.TargetDir)\MBConsoleLogger.exe" KeyPath="yes">
+          <fire:FirewallException Id="FWX1" Name="MBConsoleLogger" Scope="localSubnet" />
+        </File>
+			</Component>
+      <Component Id="MBConsoleLogger.exe.config" Guid="1136BD4F-BDF0-456F-991A-597F87837CF0">
+        <File Id="MBConsoleLogger.exe.config" Source="$(var.MBConsoleLogger.TargetDir)\MBConsoleLogger.exe.config" KeyPath="yes" />
+      </Component>
+      <Component Id="log4net.dll" Guid="F50343D8-B46C-452C-8AA0-98610E57D565">
+        <File Id="log4net.dll" Source="$(var.MBConsoleLogger.TargetDir)\log4net.dll" KeyPath="yes" />
+      </Component>      
+    </ComponentGroup>
+	</Fragment>
+</Wix>
