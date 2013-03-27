@@ -1,4 +1,4 @@
-﻿MB Console Logger
+MB Console Logger
 =================
 
 Listens to an UDP-port and prints the messages in a colored console.
@@ -8,6 +8,7 @@ Usage
 -----
 Add the following config to the application you want to listen to:
 
+```xml
 <configuration>
 	<configSections>
 		<section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net"/>
@@ -24,3 +25,4 @@ Add the following config to the application you want to listen to:
 		</root>
 	</log4net>
 </configuration>
+```
