@@ -6,7 +6,7 @@ Listens to an UDP-port and prints the messages in a colored console.
 Installation
 ------------
 
-Download the file [MBConsoleLogger_1.0.0.msi](binaries/MBConsoleLogger_1.0.0.msi)
+Download the file [MBConsoleLogger_1.0.0.msi](https://dl.dropboxusercontent.com/u/13016351/MBConsoleLogger_1.0.0.msi)
 
 Run it (it will silently install to your program files-folder and add shortcuts on desktop and start menu)
 
