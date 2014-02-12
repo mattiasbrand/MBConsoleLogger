@@ -217,3 +217,7 @@ pip-log.txt
 
 #Generated when merging
 *.orig
+
+#Nuget
+packages/
+
